@@ -13,13 +13,13 @@ async function addInventario(Inventario) {
         let pool = await sql.connect(config);
         let insertarInventario = await pool.request()
             .input('id_inventario',sql.Int,Inventario.id_inventario)
-            .input('nombre',sql.Int,Inventario.nombre)
-            .input('fabricante',sql.Int,Inventario.fabricante)
-            .input('fecha_adquisicion',sql.Int,Inventario.fecha_adquisicion)
+            .input('nombre',sql.VarChar,Inventario.nombre)
+            .input('fabricante',sql.VarChar,Inventario.fabricante)
+            .input('fecha_adquisicion',sql.VarChar,Inventario.fecha_adquisicion)
             .input('capacidad_almacenamiento',sql.Int,Inventario.capacidad_almacenamiento)
             .input('ram',sql.Int,Inventario.ram)
-            .input('cpu',sql.Int,Inventario.cpu)
-            .input('estado',sql.Int,Inventario.estado)
+            .input('cpu',sql.VarChar,Inventario.cpu)
+            .input('estado',sql.VarChar,Inventario.estado)
             .execute('addInventario');
         return insertarInventario.recordset;
     }
