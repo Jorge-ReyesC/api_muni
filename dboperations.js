@@ -1,9 +1,7 @@
 // Agregamos la configuracion de la base de datos
-var config = require ('./dbconfig');
+var config = require('./dbconfig');
 
 const sql = require('mssql');
-
-
 
 
 // Añadimos un inventario
@@ -55,4 +53,9 @@ async function getInventario(){
     }catch(error){
         console.log(error);
     }
+}
+
+module.exports={
+    getInventario:getInventario,
+    addUsuario:addUsuario
 }

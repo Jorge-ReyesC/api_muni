@@ -38,7 +38,14 @@ router.route('/inventario/nuevo').post((request,response)=>{
     }
 });
 
-
+/**
+ * Call para obtener inventario
+ */
+async function ObtenerInventario(request,response){
+    var resultado = await dboperations.getInventario();
+    response.send(resultado);
+}
+app.get('/inventario', ObtenerInventario)
 
 
 var port = process.env.PORT || 8091;
